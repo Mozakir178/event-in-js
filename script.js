@@ -14,8 +14,20 @@
  *      → switch to "dark"
  *      → change button text to "Switch Light Mode"
  ****************************************/
-
-
+let tm = document.getElementById("themeBtn");
+tm.innerHTML="drk"
+tm.addEventListener('click',
+ function (){
+    let body = document.querySelector("body");
+    if (body.className=='dark'){
+        body.className="Light";
+        tm.innerText = "drk";
+    }
+    else{
+        body.className="dark";
+        tm.innerText = "light";
+    }
+});
 /****************************************
  * 2️⃣ ADD TASK (click event)
  * --------------------------------------
@@ -31,7 +43,24 @@
  *      → clear input field
  *      → update total count
  ****************************************/
+let task = document.getElementById("taskInput");
+let btx= document.getElementById("addBtn");
+let list = document.getElementById("taskList")
+btx.addEventListener('click',function(){
+    if (task.value){
+    let pp= task.value;
+    let ctx =`
+    <li style="color:black">
+    <span>${pp}</span>
+    <button>Delete</button>
+    </li>`
+    list.innerHTML+=ctx;
+    }
+    else{
+        alert("task daaal madar chodddd")
+    }
 
+});
 
 /****************************************
  * 3️⃣ SEARCH FILTER (input event)
