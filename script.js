@@ -14,7 +14,21 @@
  *      → switch to "dark"
  *      → change button text to "Switch Light Mode"
  ****************************************/
+// let themeBtn = document.getElementById("themeBtn");
+// themeBtn.addEventListener('click', changeClass);
+const themeBtn = document.getElementById("themeBtn");
 
+themeBtn.addEventListener("click", () => {
+  const body = document.body;
+
+  if (body.className === "dark") {
+    body.className = "light";
+    themeBtn.innerText = "Switch Dark Mode";
+  } else {
+    body.className = "dark";
+    themeBtn.innerText = "Switch Light Mode";
+  }
+});
 
 /****************************************
  * 2️⃣ ADD TASK (click event)
@@ -32,6 +46,29 @@
  *      → update total count
  ****************************************/
 
+const taskInput = document.getElementById("taskInput");
+const addBtn = document.getElementById("addBtn");
+const taskList = document.getElementById("taskList");
+
+addBtn.addEventListener("click", () => {
+  const text = taskInput.value.trim();
+
+  if (text === "") {
+    alert("Please enter something!");
+    return;
+  }
+
+  taskList.innerHTML += `
+    <li>
+      <span class="taskText">${text}</span>
+      <button>Delete</button>
+    </li>
+  `;
+
+  taskInput.value = "";
+  updateTotal();
+});
+
 
 /****************************************
  * 3️⃣ SEARCH FILTER (input event)
@@ -46,6 +83,20 @@
  *      → hide <li> if not matching
  *      → show <li> if matching
  ****************************************/
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", (e) => {
+  const value = e.target.value.toLowerCase();
+
+  document.querySelectorAll("#taskList li").forEach(li => {
+    const text = li.querySelector(".taskText").textContent.toLowerCase();
+    li.style.display = text.includes(value) ? "flex" : "none";
+  });
+});
+
+
+
+
 
 
 /****************************************
@@ -60,6 +111,29 @@
  *            (get value → validate → create <li> → add to list → clear input → update count)
  ****************************************/
 
+taskInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const text = taskInput.value.trim();
+
+    if (text === "") {
+      alert("Please enter something!");
+      return;
+    }
+
+    taskList.innerHTML += `
+      <li>
+        <span class="taskText">${text}</span>
+        <button>Delete</button>
+      </li>
+    `;
+
+    taskInput.value = "";
+    updateTotal();
+  }
+});
+
+
+
 
 /****************************************
  * 4️⃣ DELETE TASK (event delegation)
@@ -72,6 +146,13 @@
  *            → remove the parent <li>
  *            → update total count
  ****************************************/
+taskList.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    e.target.parentElement.remove();
+    updateTotal();
+  }
+});
+
 
 
 /****************************************
@@ -86,7 +167,17 @@
  *      → if leaving a <li>
  *            → reset the background color
  ****************************************/
+taskList.addEventListener("mouseover", (e) => {
+  if (e.target.tagName === "LI") {
+    e.target.style.background = "#cfe3ff";
+  }
+});
 
+taskList.addEventListener("mouseout", (e) => {
+  if (e.target.tagName === "LI") {
+    e.target.style.background = "";
+  }
+});
 
 /****************************************
  * 6️⃣ TOTAL TASK COUNTER FUNCTION
@@ -100,3 +191,7 @@
  *      → adding a task
  *      → deleting a task
  ****************************************/
+function updateTotal() {
+  const total = document.querySelectorAll("#taskList li").length;
+  document.getElementById("count").innerText = `Total Task: ${total}`;
+}
