@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DOM Manipulation Practice</title>
-  <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<title>DOM CreateElement Tasks</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="container">
-    <h1>Notes Board</h1>
+    <h1>DOM CreateElement Teaching Tasks</h1>
 
-    <div class="input-section">
-      <input type="text" id="noteInput" placeholder="Type something...">
-      <button id="addBtn">Add Note</button>
-    </div>
+    <!-- TASK 1: Notifications -->
+    <section>
+      <h2>Task 1: Notification</h2>
+      <button id="task1Btn">Show Notification</button>
+      <div id="notificationContainer" class="section-container"></div>
+    </section>
 
-    <div class="notes-container" id="notesContainer">
-      <!-- Notes added using createElement will appear here -->
-    </div>
+    <!-- TASK 2: User Profile Generator -->
+    <section>
+      <h2>Task 2: User Profile</h2>
+      <input type="text" id="userName" placeholder="Name">
+      <input type="number" id="userAge" placeholder="Age">
+      <input type="text" id="userCourse" placeholder="Course">
+      <button id="task2Btn">Add Profile</button>
+      <div id="profileContainer" class="section-container"></div>
+    </section>
+
+    <!-- TASK 3: Product List -->
+    <section>
+      <h2>Task 3: Product List</h2>
+      <button id="task3Btn">Show Products</button>
+      <div id="productContainer" class="section-container"></div>
+    </section>
+
+    <!-- TASK 4: Color Boxes -->
+    <section>
+      <h2>Task 4: Color Boxes</h2>
+      <button id="task4Btn">Add Color Box</button>
+      <div id="colorContainer" class="section-container"></div>
+    </section>
+
+    <!-- TASK 5: Message Board -->
+    <section>
+      <h2>Task 5: Message Board</h2>
+      <input type="text" id="messageInput" placeholder="Enter message">
+      <button id="task5Btn">Add Message</button>
+      <div id="messageContainer" class="section-container"></div>
+    </section>
+
   </div>
 
-  <script src="./script.js">
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
