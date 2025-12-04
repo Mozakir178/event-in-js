@@ -46,9 +46,16 @@ const products = [
 // TASK 4: ADD COLOR BOX
 // - Create div.widget
 // - width & height: 50px
-// - backgroundColor: random hex
+// - backgroundColor: random color from [red,green,blue]
 // - Append to #colorContainer
 // ------------------------------
+
+
+
+
+
+
+
 
 // ------------------------------
 // TASK 5: ADD MESSAGE
