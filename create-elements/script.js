@@ -22,13 +22,13 @@
 
 
 
-
 // ------------------------------
-// TASK 3: SHOW PRODUCTS FROM ARRAY
+// TASK 3: SHOW PRODUCTS FROM ARRAY + DELETE FUNCTIONALITY
 // - Array provided: products
 // - For each product: create div.product-card.widget
 // - Create <p> for name and price
-// - Append <p> to card, append card to #productContainer
+// - Add a delete button
+// - Append elements to card, then card to #productContainer
 // ------------------------------
 const products = [
   { name: "Product 1", price: "$10" },
